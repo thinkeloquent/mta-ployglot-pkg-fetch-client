@@ -7,7 +7,7 @@ name = "polyglot-fetch-http-client"
 version = "0.1.0"
 description = "Async HTTP client on top of httpx with auth, retry, circuit breaker, caching, and structured logging. Python twin of @polyglot/fetch-http-client."
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.11.4,<3.12"
 license = "MIT"
 authors = [{ name = "polyglot-fetch-http-client contributors" }]
 keywords = ["http", "async", "httpx", "retry", "circuit-breaker", "cache"]

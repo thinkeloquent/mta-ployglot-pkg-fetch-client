@@ -9,7 +9,7 @@
 name = "fetch-http-client-monorepo"
 version = "0.0.0"
 description = "Polyglot workspace root for @polyglot/fetch-http-client (TS) and polyglot-fetch-http-client (Python)."
-requires-python = ">=3.11"
+requires-python = ">=3.11.4,<3.12"
 
 [tool.uv]
 package = false
