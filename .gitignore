@@ -40,3 +40,4 @@ uv.lock
 
 # Local symlink to mta-ployglot-agentfiles-claude (formerly a submodule)
 .claude
+package-lock.json

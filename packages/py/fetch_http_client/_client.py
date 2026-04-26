@@ -51,6 +51,16 @@ class Response:
         return self._raw.status_code
 
     @property
+    def status(self) -> str:
+        """Textual reason phrase for `status_code` (e.g. "OK", "Not Found").
+
+        Note: this intentionally diverges from the Web Fetch API where
+        `Response.status` is the integer; here `Response.status` is the text
+        and `Response.status_code` is the integer.
+        """
+        return self._raw.reason_phrase
+
+    @property
     def headers(self) -> httpx.Headers:
         return self._raw.headers
 

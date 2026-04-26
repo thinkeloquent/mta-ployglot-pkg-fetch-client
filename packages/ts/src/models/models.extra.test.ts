@@ -225,3 +225,23 @@ describe('URL utilities — extra branches', () => {
     expect(getOrigin('http://x.test:8080/p')).toBe('http://x.test:8080');
   });
 });
+
+describe('Response.status / Response.status_code', () => {
+  it.each([
+    [200, 'OK'],
+    [404, 'Not Found'],
+    [500, 'Internal Server Error'],
+  ])('known code %i -> "%s"', (code, expected) => {
+    const r = new Response({ statusCode: code });
+    expect(r.status_code).toBe(code);
+    expect(r.status).toBe(expected);
+    expect(r.statusCode).toBe(code);
+  });
+
+  it('unknown code returns a sensible fallback', () => {
+    const r = new Response({ statusCode: 799 });
+    expect(r.status_code).toBe(799);
+    expect(typeof r.status).toBe('string');
+    expect(r.status.length).toBeGreaterThan(0);
+  });
+});

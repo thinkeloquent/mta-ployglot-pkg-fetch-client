@@ -121,6 +121,18 @@ const client = new AsyncClient({
 When `buildProxy(...)` returns `undefined` (no env, no override), callers
 omit the `proxy:` field entirely so the request goes direct.
 
+## Response status fields
+
+| Field          | Type    | Description                                                   |
+| -------------- | ------- | ------------------------------------------------------------- |
+| `statusCode`   | number  | HTTP status code (camelCase form, original).                  |
+| `status_code`  | number  | Snake-case alias for `statusCode`. Cross-language parity.     |
+| `status`       | string  | Textual reason phrase (e.g. `"OK"`, `"Not Found"`).           |
+
+> ⚠️ `Response.status` is the TEXT here — opposite of the Web Fetch API where
+> `Response.status` is the integer. Use `status_code` (or `statusCode`) when
+> you need the integer.
+
 ## License
 
 MIT

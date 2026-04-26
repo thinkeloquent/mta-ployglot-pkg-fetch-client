@@ -259,3 +259,13 @@ Drift that **is** intentional:
 - FastAPI integration deferred (plan feature 13) — the TS twin will ship
   a Fastify adapter; the Python side's FastAPI adapter will land in a
   follow-up.
+
+## Response status fields
+
+| Field          | Type | Description                                         |
+| -------------- | ---- | --------------------------------------------------- |
+| `status_code`  | int  | HTTP status code.                                   |
+| `status`       | str  | Textual reason phrase (e.g. `"OK"`, `"Not Found"`). |
+
+> ⚠️ `Response.status` is the TEXT here — opposite of the Web Fetch API where
+> `Response.status` is the integer. Use `status_code` when you need the integer.

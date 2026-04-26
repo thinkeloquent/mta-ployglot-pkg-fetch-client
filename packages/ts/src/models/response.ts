@@ -76,6 +76,25 @@ export class Response {
     return this.statusCode >= 100 && this.statusCode < 200;
   }
 
+  /**
+   * Snake-case alias for `statusCode`. Mirrors the Python twin so cross-language
+   * code paths (e.g. polyglot server route handlers) can compare against the
+   * same field name.
+   */
+  get status_code(): number {
+    return this.statusCode;
+  }
+
+  /**
+   * Textual reason phrase for `statusCode` (e.g. "OK", "Not Found"). Note: this
+   * intentionally diverges from the Web Fetch API where `Response.status` is the
+   * integer; here `Response.status` is the text and `Response.status_code` is the
+   * integer.
+   */
+  get status(): string {
+    return getStatusText(this.statusCode);
+  }
+
   get contentType(): string | undefined {
     return this.headers.get('content-type');
   }
